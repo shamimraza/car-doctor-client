@@ -82,7 +82,7 @@ const SignUp = () => {
           </form>
           <p className="my-4 text-center">
             Already Have an Account
-            <Link className="text-orange-500 font-bold" to="login">
+            <Link className="text-orange-500 font-bold" to="/login">
               Login
             </Link>
           </p>

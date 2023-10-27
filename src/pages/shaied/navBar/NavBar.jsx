@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import navImg from "../../../assets/logo.svg";
+import { AiOutlineSearch, AiOutlineShopping } from "react-icons/ai";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   const navItems = (
     <>
       <li>
@@ -10,6 +22,15 @@ const NavBar = () => {
       <li>
         <Link to="/about">About</Link>
       </li>
+      {user?.email ? (
+        <li>
+          <button onClick={handleLogOut}>LogOut</button>
+        </li>
+      ) : (
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
   );
 
@@ -49,8 +70,19 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
+
       <div className="navbar-end">
-        <a className="btn">get started</a>
+        <div className="flex mr-5 items-center justify-center">
+          <a href="">
+            <AiOutlineSearch className="text-2xl mr-4"></AiOutlineSearch>
+          </a>
+          <a href="">
+            <AiOutlineShopping className="text-2xl"></AiOutlineShopping>
+          </a>
+        </div>
+        <a className="btn btn-outline btn-warning text-orange-500">
+          get started
+        </a>
       </div>
     </div>
   );

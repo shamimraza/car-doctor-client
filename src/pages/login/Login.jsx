@@ -64,7 +64,7 @@ const Login = () => {
           </form>
           <p className="my-4 text-center">
             New to Car Doctor{" "}
-            <Link className="text-orange-500 font-bold" to="signup">
+            <Link className="text-orange-500 font-bold" to="/signup">
               Sign Up
             </Link>
           </p>
