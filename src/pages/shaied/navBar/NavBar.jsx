@@ -85,9 +85,12 @@ const NavBar = () => {
             <AiOutlineShopping className="text-2xl"></AiOutlineShopping>
           </a>
         </div>
-        <a className="btn btn-outline btn-warning text-orange-500">
+        <Link
+          to="/login"
+          className="btn btn-outline btn-warning text-orange-500"
+        >
           get started
-        </a>
+        </Link>
       </div>
     </div>
   );

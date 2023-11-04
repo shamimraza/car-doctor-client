@@ -17,6 +17,10 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "about",
+        element: <div>This is my About page</div>,
+      },
+      {
         path: "/login",
         element: <Login></Login>,
       },
@@ -26,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout/:id",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivetRoutes>
+            <Checkout></Checkout>
+          </PrivetRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/services/${params.id}`),
       },
